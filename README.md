@@ -4,13 +4,13 @@ Amino Guesser is a web-based interactive quiz game designed to help users playfu
 ## Key Highlights for Quality Assurance
 This project showcases core competencies required for a QA Engineer role, including:
 
-- *Automated Testing*: Implementation of an end-to-end test suite using Playwright to mimic user interactions, such as navigating the game and clicking buttons. The tests validate the correctness of the game logic and the integrity of visual assets (SVGs).
+- **Automated Testing**: Implementation of an end-to-end test suite using Playwright to mimic user interactions, such as navigating the game and clicking buttons. The tests validate the correctness of the game logic and the integrity of visual assets (SVGs).
 
-- Containerization: The application and the testing environment are independently containerized using Docker. This ensures a reproducible and isolated environment for testing, eliminating issues with dependencies.
+- **Containerization**: The application and the testing environment are independently containerized using Docker. This ensures a reproducible and isolated environment for testing, eliminating issues with dependencies.
 
-- Kubernetes-based Deployment: The entire QA environment is orchestrated using Kubernetes (Minikube). A dedicated Job runs the test suite within its own pod, separate from the main application, reflecting a robust, real-world testing approach.
+- **Kubernetes-based Deployment**: The entire QA environment is orchestrated using Kubernetes (Minikube). A dedicated Job runs the test suite within its own pod, separate from the main application, reflecting a robust, real-world testing approach.
 
-- Debugging and Maintenance: The configuration includes a hostPath volume to automatically export test reports and screenshots, addressing common challenges in a containerized QA environment. The setup also demonstrates a systematic approach to debugging common Kubernetes and Docker issues.(Not working!)
+- **Debugging and Maintenance**: The configuration includes a hostPath volume to automatically export test reports and screenshots, addressing common challenges in a containerized QA environment. The setup also demonstrates a systematic approach to debugging common Kubernetes and Docker issues.(Not working!)
 
 ```
 .
