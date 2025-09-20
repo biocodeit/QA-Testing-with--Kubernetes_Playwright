@@ -4,7 +4,7 @@ Amino Guesser is a web-based interactive quiz game designed to help users playfu
 ## Key Highlights for Quality Assurance
 This project showcases core competencies required for a QA Engineer role, including:
 
-- Automated Testing: Implementation of an end-to-end test suite using Playwright to mimic user interactions, such as navigating the game and clicking buttons. The tests validate the correctness of the game logic and the integrity of visual assets (SVGs).
+- *Automated Testing*: Implementation of an end-to-end test suite using Playwright to mimic user interactions, such as navigating the game and clicking buttons. The tests validate the correctness of the game logic and the integrity of visual assets (SVGs).
 
 - Containerization: The application and the testing environment are independently containerized using Docker. This ensures a reproducible and isolated environment for testing, eliminating issues with dependencies.
 
