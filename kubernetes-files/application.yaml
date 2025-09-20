@@ -1,0 +1,45 @@
+# --- The Deployment for your Web Application ---
+# This resource manages your long-running application container.
+# It ensures your app is always available within the cluster.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  # This tells Kubernetes to always have exactly 1 pod running.
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-web-app
+  template:
+    metadata:
+      labels:
+        app: my-web-app
+    spec:
+      containers:
+      - name: app-container
+        # Use the name of your app image from Docker Hub.
+        # It's a best practice to pin to a specific version instead of 'latest'.
+        image: biodecoder/amino-guesser:v2.0
+        # The internal port your application listens on.
+        ports:
+        - containerPort: 80
+---
+# --- The Service to expose your Web Application ---
+# This creates a stable internal DNS name so other pods can find your app.
+# This is the equivalent of the Docker Compose service name.
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+spec:
+  # The selector links this service to the pods managed by the 'app-deployment'.
+  selector:
+    app: my-web-app
+  ports:
+    - protocol: TCP
+      # The port on the Service.
+      port: 80
+      # The port on the container itself.
+      targetPort: 80
+

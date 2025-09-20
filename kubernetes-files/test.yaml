@@ -1,0 +1,37 @@
+# --- The Job to run your Test Suite ---
+# This is the most important part. A Job is a one-off task that runs until completion.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: tests-job
+spec:
+  # This tells the Job to restart the pod if it fails, up to a certain number of times.
+  backoffLimit: 2
+  template:
+    spec:
+      containers:
+      - name: test-runner
+        # Use the name of your test image from Docker Hub.
+        image: biodecoder/amino-test:v4.0
+        # The command to execute in the container.
+        # It should run your test suite and then exit.
+        command: ["pytest", "tests/test_svg.py"]
+        # Set the environment variable for your test script.
+        # The URL uses the Service name 'app-service' and its port.
+        env:
+        - name: APP_URL
+          value: "http://app-service:80"
+        # Mount the volume to save reports
+        volumeMounts:
+        - name: reports-volume
+          mountPath: /app/reports
+      # Mount the volume from the host machine
+      volumes:
+      - name: reports-volume
+        hostPath:
+          # The path on your host machine where the reports will be saved
+          path: /home/spurge/work/sdproj/ongoing/test_QA/kubernetes-files/test-reports
+          type: DirectoryOrCreate
+      # This ensures the pod is not restarted if the command exits successfully.
+      restartPolicy: Never
+
