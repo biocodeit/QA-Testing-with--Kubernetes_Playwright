@@ -12,6 +12,7 @@ This project showcases core competencies required for a QA Engineer role, includ
 
 - Debugging and Maintenance: The configuration includes a hostPath volume to automatically export test reports and screenshots, addressing common challenges in a containerized QA environment. The setup also demonstrates a systematic approach to debugging common Kubernetes and Docker issues.(Not working!)
 
+```
 .
 ├── Kubernetes-files
 |   ├── application.yaml          # Kubernetes Deployment and Service for the app
@@ -30,7 +31,7 @@ This project showcases core competencies required for a QA Engineer role, includ
     ├── conftest.py
     ├── pytest.ini
     └── tests/test_svg.py           # Playwright tests
-
+```
 
 ## Technologies Used
 - Front-end: HTML, CSS, JavaScript, 3Dmol.js, jQuery
